@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GloBridge - Elite Design System */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Sophisticated Dark Blues & Luxurious Gold */
+    --background: 218 30% 98%;
+    --foreground: 220 65% 8%;
+    
+    /* Sophisticated Dark Blue Foundation */
+    --primary: 220 50% 15%;
+    --primary-foreground: 40 100% 97%;
+    --primary-dark: 220 65% 10%;
+    --primary-light: 220 35% 25%;
+    
+    /* Luxurious Gold & Warm Accent Palette */
+    --accent-gold: 45 85% 55%;
+    --accent-sand: 40 25% 75%;
+    --accent-cream: 42 45% 95%;
+    --accent-peru: 35 60% 50%;
+    
+    /* Sophisticated Grays */
+    --muted: 36 20% 96%;
+    --muted-foreground: 222 13% 46%;
+    --secondary: 36 30% 94%;
+    --secondary-foreground: 222 47% 11%;
+    
+    /* System Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+    --border: 36 20% 88%;
+    --input: 36 20% 88%;
+    --ring: 37 77% 58%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Design Tokens */
+    --radius: 0.75rem;
+    --spacing-section: 8rem;
+    --spacing-element: 3rem;
+    
+    /* Typography Scale */
+    --font-size-hero: 4.5rem;
+    --font-size-h1: 3.5rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 1.875rem;
+    --line-height-tight: 1.1;
+    --line-height-relaxed: 1.6;
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cormorant;
+  }
+}
+
+@layer components {
+  /* Typography Components */
+  .text-hero {
+    @apply text-6xl md:text-7xl lg:text-8xl font-cormorant font-light leading-none tracking-tight;
+  }
+  
+  .text-display {
+    @apply text-4xl md:text-5xl lg:text-6xl font-cormorant font-light leading-tight;
+  }
+  
+  .text-headline {
+    @apply text-3xl md:text-4xl font-cormorant font-medium leading-tight;
+  }
+  
+  .text-subheadline {
+    @apply text-xl md:text-2xl font-inter font-light leading-relaxed;
+  }
+  
+  .text-body-large {
+    @apply text-lg font-inter font-light leading-relaxed;
+  }
+  
+  .text-body {
+    @apply text-base font-inter font-normal leading-relaxed;
+  }
+  
+  /* Brand Color Utilities */
+  .text-accent-gold {
+    color: hsl(var(--accent-gold));
+  }
+  
+  .text-accent-sand {
+    color: hsl(var(--accent-sand));
+  }
+  
+  .bg-accent-gold {
+    background-color: hsl(var(--accent-gold));
+  }
+  
+  .bg-accent-sand {
+    background-color: hsl(var(--accent-sand));
+  }
+  
+  .bg-accent-cream {
+    background-color: hsl(var(--accent-cream));
+  }
+  
+  .bg-primary-dark {
+    background-color: hsl(var(--primary-dark));
+  }
+  
+  /* Layout Components */
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+  
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-6 lg:px-8;
+  }
+  
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-dark transition-colors px-8 py-4 rounded-xl font-medium;
+  }
+  
+  .btn-accent {
+    @apply bg-accent-gold text-white hover:bg-accent-peru transition-colors px-8 py-4 rounded-xl font-medium;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-8 py-4 rounded-xl font-medium;
+  }
+  
+  /* Special Effects */
+  .gradient-warm {
+    background: linear-gradient(135deg, hsl(var(--accent-cream)) 0%, hsl(var(--accent-sand)) 100%);
+  }
+  
+  .gradient-navy {
+    background: linear-gradient(135deg, hsl(var(--primary-dark)) 0%, hsl(var(--primary)) 100%);
+  }
+  
+  .shadow-elegant {
+    box-shadow: 0 20px 60px -10px hsl(var(--primary) / 0.1);
+  }
+  
+  .bridge-metaphor {
+    @apply relative overflow-hidden;
+  }
+  
+  .bridge-metaphor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      hsl(var(--primary-dark) / 0.95) 0%, 
+      hsl(var(--primary) / 0.85) 50%,
+      hsl(var(--accent-gold) / 0.1) 100%
+    );
+  }
+
+  /* Animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+}
